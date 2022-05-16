@@ -1,5 +1,6 @@
 import requests
 import json
+from getpass import getpass
 from colorama import init,Fore,Back,Style
 init(autoreset=True)
 import os
@@ -128,7 +129,7 @@ print(Fore.YELLOW+"""
       """)
 while True:
   username=input("DUCO Username: ")
-  password=input("DUCO Password: ")
+  password=getpass(prompt="DUCO Password: ")
   user = requests.get(f'https://server.duinocoin.com/auth/{username}?password={password}')
   res=json.loads(user.text)
   if res['success']:
